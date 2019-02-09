@@ -187,7 +187,7 @@ $(document).ready(function() {
   });
 
   // file input para imagenes
-  $("#file_input").fileinput({
+  $(".file_input").fileinput({
     'showUpload': false,
     'previewFileType':'any',
     'allowedFileTypes': ["image"],

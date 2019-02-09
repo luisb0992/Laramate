@@ -35,7 +35,7 @@
       data-background-color = "black | white"
     -->
     <!-- sidebar -->
-    <div class="sidebar" data-color="danger" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
 
       <!-- logo -->
       <div class="logo">
@@ -47,12 +47,21 @@
       <!-- Menu -->
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">
+
+          <li class="nav-item {{ Request::segment(1) === 'dashboard' ? 'active' : null }}">
+            <a class="nav-link" href="{{ route('dashboard') }}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
+
+          <li class="nav-item {{ Request::segment(1) === 'users' ? 'active' : null }}">
+            <a class="nav-link" href="{{ route('users.index') }}">
+              <i class="material-icons">people</i>
+              <p>Usuarios</p>
+            </a>
+          </li>
+
         </ul>
       </div>
     </div>
@@ -61,7 +70,7 @@
     <div class="main-panel">
 
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top">
         <div class="container-fluid">
 
           <!-- header -->
@@ -93,16 +102,16 @@
                       {{ Auth::user()->name }} <i class="material-icons">keyboard_arrow_down</i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Perfil</a>
+                      <a class="dropdown-item" href="{{ route('perfil') }}">Perfil</a>
                       <a class="dropdown-item" href="#">Configuracion</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="{{ route('logout') }}"
+                      <a class="dropdown-item" href="{{ route('salir') }}"
                          onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">
                           Salir
                       </a>
 
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      <form id="logout-form" action="{{ route('salir') }}" method="POST" style="display: none;">
                           @csrf
                       </form>
                     </div>
@@ -116,9 +125,7 @@
 
       <!-- contenido -->
       <div class="content">
-        <main class="py-4">
           @yield('content')
-        </main>
       </div>
     </div>
   </div>

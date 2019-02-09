@@ -1,73 +1,58 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('login/images/bg-02.jpg');">
+    <div class="wrap-login100">
+      @if (count($errors) > 0)
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        	<ul>
+             @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+             @endforeach
+         	</ul>
         </div>
+      @endif
+      <form class="login100-form validate-form" method="POST" action="{{ route('entrar') }}">
+        @csrf
+        <span class="login100-form-logo">
+          <i class="fa fa-user"></i>
+        </span>
+
+        <span class="login100-form-title p-b-34 p-t-27">
+          Log in
+        </span>
+
+        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+          <input id="user" class="input100 {{ $errors->has('user') ? ' is-invalid' : '' }}" type="text" name="user" placeholder="Usuario" value="{{ old('user') }}" required autofocus>
+          <span class="focus-input100" data-placeholder="&#xf207;"></span>
+
+          @if ($errors->has('user'))
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('user') }}</strong>
+              </span>
+          @endif
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <input class="input100 {{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Password" id="password" name="password" required>
+          <span class="focus-input100" data-placeholder="&#xf191;"></span>
+          @if ($errors->has('password'))
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('password') }}</strong>
+              </span>
+          @endif
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" type="submit">
+            Login
+          </button>
+        </div>
+
+      </form>
     </div>
+  </div>
 </div>
 @endsection
