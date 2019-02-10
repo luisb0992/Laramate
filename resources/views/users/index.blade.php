@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('header','Usuarios')
 @section('content')
-	@include('partials.flash')
 	<div class="container-fluid">
+		@include('partials.flash')
 	<!-- Info boxes -->
   <div class="row">
 		<div class="col-lg-3 col-md-6 col-sm-6">
@@ -56,9 +56,19 @@
 										<a class="btn btn-primary btn-round btn-sm" href="{{ route('users.show',[$d->id])}}" rel="tooltip" data-placement="top" title="ver">
 											<i class="material-icons">person</i>
 										</a>
-										<a href="{{route('users.edit',[$d->id])}}" class="btn btn-round btn-success btn-sm" rel="tooltip" data-placement="top" title="Editar">
+										<a href="{{route('users.edit',[$d->id])}}" class="btn btn-round btn-warning btn-sm" rel="tooltip" data-placement="top" title="Editar">
 											<i class="material-icons">edit</i>
 										</a>
+										@if(Auth::id() <> 1)
+										<a class="btn btn-round btn-danger btn-sm" href="{{ route('users.destroy', $d->id) }}"
+											 onclick="event.preventDefault(); document.getElementById('delete_user').submit();" rel="tooltip" data-placement="top" title="Eliminar">
+													<i class="material-icons">delete</i>
+										</a>
+										<form id="delete_user" class="" action="{{ route('users.destroy', $d->id)}}" method="POST" style="display: none;">
+											{{ method_field( 'DELETE' ) }}
+				              @csrf
+										</form>
+										@endif
 									</td>
 								</tr>
 							@endforeach

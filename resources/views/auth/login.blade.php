@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="limiter">
-  <div class="container-login100" style="background-image: url('login/images/bg-02.jpg');">
+  <div class="container-login100" style="background-image: url('login/images/bg-01.jpg');">
     <div class="wrap-login100">
       @if (count($errors) > 0)
         <div class="alert alert-danger alert-dismissible fade show" role="alert">

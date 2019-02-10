@@ -27,10 +27,7 @@ class HomeController extends Controller
       			if (Auth::user()->status == "inactivo") {
 
       				Auth::logout();
-      				return redirect()->route('login')->with([
-			               'flash_message' => 'Usuario Inactivo, contacte con el administrador!',
-			               'flash_class'   => 'alert-warning'
-			        ]);
+      				return redirect()->route('login')->withErrors('Usuario Inactivo, contacte con el admin');
 
       			}else{
 

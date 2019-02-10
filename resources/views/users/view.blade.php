@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Usuario - '.config('app.name'))
+@section('title','Usuarios - '.config('app.name'))
 @section('header','Usuario / Ver')
 @section('content')
 	<section>
@@ -8,7 +8,7 @@
     <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#delModal"><i class="fas fa-times" aria-hidden="true"></i> Eliminar</button>
 	</section>
 
-	<section class="perfil">
+	<section>
 		<div class="row">
     	<div class="col-sm-12">
 				<div class="card">
@@ -19,13 +19,13 @@
           </div>
           <div class="card-body">
 						<ul class="list-group list-group-flush">
-					    <li class="list-group-item"><b>Email: </b> {{$user->email}} </li>
-					    <li class="list-group-item"><b>Usuario: </b> {{$user->user}} </li>
-					    <li class="list-group-item"><b>Registrado: </b> {{ $user->created_at }}</li>
+					    <li class="list-group-item"><b>Email: </b> {{ $user->email }} </li>
+					    <li class="list-group-item"><b>Usuario: </b> {{ $user->user }} </li>
+					    <li class="list-group-item"><b>Registrado: </b> {{ date('d-m-Y',strtotime(str_replace('/', '-', $user->created_at))) }}</li>
 					  </ul>
           </div>
       	</div>
-
+			</div>
 		</div>
 	</section>
 
@@ -43,7 +43,7 @@
               <h4 class="text-center">¿Esta seguro de eliminar este usuario?</h4>
         </div>
 				<div class="modal-footer">
-					<button class="btn btn-flat btn-danger" type="submit">Eliminar</button>
+					<button class="btn btn-danger" type="submit">Eliminar</button>
 					<button type="button" class="btn btn-flat btn-default" data-dismiss="modal">Cerrar</button>
 	      </div>
       </div>

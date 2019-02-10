@@ -38,6 +38,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+          'name'     => 'required',
+          'password' => 'required',
+          'email'    => 'required|unique:users,email',
+          'user'     => 'required|unique:users,user'
+        ]);
+
         $user = new User($request->all());
 
         if($user->save()){
@@ -88,7 +95,27 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $user = User::findOrFail($id);
+
+      $this->validate($request, [
+        'name'   => 'required',
+        'email'  => 'required',
+        'user'   => 'required|unique:users,user,'.$user->id.',id'
+      ]);
+
+      $user->fill($request->all());
+
+      if($user->save()){
+        return redirect("users")->with([
+            'flash_message' => 'Usuario actualizado correctamente.',
+            'flash_class'   => 'alert-success'
+        ]);
+      }else{
+        return redirect("users")->with([
+            'flash_message'   => 'Ha ocurrido un error.',
+            'flash_class'     => 'alert-danger'
+        ]);
+      }
     }
 
     /**
@@ -109,8 +136,7 @@ class UserController extends Controller
         }else{
           return redirect('users')->with([
             'flash_class'     => 'alert-danger',
-            'flash_message'   => 'Ha ocurrido un error.',
-            'flash_important' => true
+            'flash_message'   => 'Ha ocurrido un error.'
           ]);
         }
     }
@@ -127,18 +153,18 @@ class UserController extends Controller
 
       $this->validate($request, [
         'name'     => 'required',
-        'password' => 'required',
-        'usuario'  => 'required|unique:users,usuario,'.$user->id.',id'
+        'email'    => 'required|unique:users,email,'.$user->id.',id',
+        'user'     => 'required|unique:users,user,'.$user->id.',id'
       ]);
 
     	$user->fill($request->all());
-
       if($request->input('checkbox') === "Yes"){
       	$this->validate($request,[
           'password' => 'required|min:6|confirmed'
     		]);
         $user->password = bcrypt($request->password);
-  			$user->clave = $request->password;
+      }else{
+        $user->password = $user->password;
       }
 
     	if($user->save()){
@@ -149,8 +175,7 @@ class UserController extends Controller
     	}else{
         return redirect('perfil')->with([
           'flash_message'   => 'Ha ocurrido un error.',
-          'flash_class'     => 'alert-danger',
-          'flash_important' => true
+          'flash_class'     => 'alert-danger'
         ]);
     	}
     }
