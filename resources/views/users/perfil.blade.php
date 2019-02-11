@@ -32,11 +32,14 @@
 				  </div>
 
 				  <div class="form-group">
-				  	<div class="checkbox">
-					    <label>
-					      <input id="pp" type="checkbox" name="checkbox" value="Yes"> Cambiar contraseña?
-					    </label>
-				    </div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input id="pp" type="checkbox" name="checkbox" value="Yes" class="form-check-input"> Cambiar contraseña?
+								<span class="form-check-sign">
+									<span class="check"></span>
+								</span>
+							</label>
+						</div>
 				  </div>
 
 				  <section id="password_fields" style="display:none">

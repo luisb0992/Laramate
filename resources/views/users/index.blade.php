@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('header','Usuarios')
 @section('content')
-	<div class="container-fluid">
+
 		@include('partials.flash')
-	<!-- Info boxes -->
   <div class="row">
 		<div class="col-lg-3 col-md-6 col-sm-6">
 			<div class="card card-stats">
@@ -18,8 +17,6 @@
 				</div>
 				<div class="card-footer">
 					<div class="stats">
-						<i class="material-icons">info</i>
-						<a href="#">Todos los usuarios</a>
 					</div>
 				</div>
 			</div>
@@ -43,17 +40,24 @@
 							<th>Nombre</th>
 							<th>Usuario</th>
 							<th>Email</th>
-							<th>Accion</th>
+							<th>Status</th>
+							<th><i class="fa fa-cogs"></i></th>
 						</thead>
 						<tbody>
 							@foreach($users as $d)
 								<tr>
-									<td>{{$loop->index+1}}</td>
-									<td>{{$d->name}}</td>
-									<td>{{$d->user}}</td>
-									<td>{{$d->email}}</td>
+									<td>{{ $loop->index+1 }}</td>
+									<td>{{ $d->name }}</td>
+									<td>{{ $d->user }}</td>
+									<td>{{ $d->email }}</td>
+									<td class="text-capitalize {{ $d->status === 'activo' ? 'text-success' : 'text-danger' }}">
+										{{ $d->status }}
+									</td>
 									<td>
-										<a class="btn btn-primary btn-round btn-sm" href="{{ route('users.show',[$d->id])}}" rel="tooltip" data-placement="top" title="ver">
+										<a class="btn btn-success btn-round btn-sm" href="{{ route('statusUser', $d->id)}}" rel="tooltip" data-placement="top" title="Cambiar status?" onclick="return confirm('Cambiar status del usuario?');">
+											<i class="fas fa-bug"></i>
+										</a>
+										<a class="btn btn-primary btn-round btn-sm" href="{{ route('users.show', $d->id)}}" rel="tooltip" data-placement="top" title="ver">
 											<i class="material-icons">person</i>
 										</a>
 										<a href="{{route('users.edit',[$d->id])}}" class="btn btn-round btn-warning btn-sm" rel="tooltip" data-placement="top" title="Editar">
@@ -78,5 +82,4 @@
 			</div>
 		</div>
 	</div>
-</div>
 @endsection

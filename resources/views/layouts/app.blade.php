@@ -25,6 +25,11 @@
   <!-- Datepicker -->
   <link rel="stylesheet" href="{{ asset('plugins/datepicker/jquery-ui.css') }}">
 
+  <!-- Datatables -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('plugins/datatables/DataTables-1.10.18/css/dataTables.jqueryui.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('plugins/datatables/Responsive-2.2.2/css/responsive.jqueryui.css')}}">
+
+
 </head>
 
 <body class="">
@@ -35,11 +40,11 @@
       data-background-color = "black | white"
     -->
     <!-- sidebar -->
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="{{ asset('img/sidebar-3.jpg') }}">
 
       <!-- logo -->
       <div class="logo">
-        <a href="" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal">
           {{ config('app.name', 'Laravel') }}
         </a>
       </div>
@@ -124,7 +129,9 @@
 
       <!-- contenido -->
       <div class="content">
+        <div class="container-fluid">
           @yield('content')
+        </div>
       </div>
     </div>
   </div>
@@ -174,7 +181,8 @@
   <script src="{{ asset('js/material/plugins/bootstrap-selectpicker.js') }}"></script>
 
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="{{ asset('js/material/plugins/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('plugins/datatables/datatables.js') }}"></script>
+  <script src="{{ asset('plugins/datatables/Responsive-2.2.2/js/responsive.jqueryui.js')}}"></script>
 
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="{{ asset('js/material/plugins/bootstrap-tagsinput.js') }}"></script>

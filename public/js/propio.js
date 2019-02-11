@@ -174,7 +174,7 @@ $(document).ready(function() {
   $('.data-table').DataTable({
     responsive: true,
     language: {
-    	url:'js/material/plugins/spanish.json'
+      url:'plugins/datatables/spanish.json'
     }
   });
 

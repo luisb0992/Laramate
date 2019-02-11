@@ -180,7 +180,7 @@ class UserController extends Controller
     	}
     }
 
-    public function userStatus(Request $request, $id){
+    public function userStatus($id){
 
       $user = User::find($id);
 

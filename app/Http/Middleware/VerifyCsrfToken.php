@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'js/material/plugins/spanish.json',
+        'plugins/datatables/spanish.json',
     ];
 }
