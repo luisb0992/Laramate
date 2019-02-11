@@ -54,9 +54,6 @@
 										{{ $d->status }}
 									</td>
 									<td>
-										<a class="btn btn-success btn-round btn-sm" href="{{ route('statusUser', $d->id)}}" rel="tooltip" data-placement="top" title="Cambiar status?" onclick="return confirm('Cambiar status del usuario?');">
-											<i class="fas fa-bug"></i>
-										</a>
 										<a class="btn btn-primary btn-round btn-sm" href="{{ route('users.show', $d->id)}}" rel="tooltip" data-placement="top" title="ver">
 											<i class="material-icons">person</i>
 										</a>
@@ -64,6 +61,9 @@
 											<i class="material-icons">edit</i>
 										</a>
 										@if(Auth::id() <> 1)
+										<a class="btn btn-success btn-round btn-sm" href="{{ route('statusUser', $d->id)}}" rel="tooltip" data-placement="top" title="Cambiar status?" onclick="return confirm('Cambiar status del usuario?');">
+											<i class="fas fa-bug"></i>
+										</a>
 										<a class="btn btn-round btn-danger btn-sm" href="{{ route('users.destroy', $d->id) }}"
 											 onclick="event.preventDefault(); document.getElementById('delete_user').submit();" rel="tooltip" data-placement="top" title="Eliminar">
 													<i class="material-icons">delete</i>
