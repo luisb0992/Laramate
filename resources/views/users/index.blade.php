@@ -60,7 +60,7 @@
 										<a href="{{route('users.edit',[$d->id])}}" class="btn btn-round btn-warning btn-sm" rel="tooltip" data-placement="top" title="Editar">
 											<i class="material-icons">edit</i>
 										</a>
-										@if(Auth::id() <> 1)
+										@if($d->id <> 1)
 										<a class="btn btn-success btn-round btn-sm" href="{{ route('statusUser', $d->id)}}" rel="tooltip" data-placement="top" title="Cambiar status?" onclick="return confirm('Cambiar status del usuario?');">
 											<i class="fas fa-bug"></i>
 										</a>
