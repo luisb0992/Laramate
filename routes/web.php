@@ -4,8 +4,8 @@
 Auth::routes();
 
 Route::get('/', function () { return view('auth.login'); })->name('login');
-Route::post('auth', 'HomeController@login')->name('entrar');
-Route::post('/logout', 'HomeController@logout')->name('salir');
+Route::post('entrar', 'HomeController@login')->name('entrar');
+Route::post('salir', 'HomeController@logout')->name('salir');
 
 Route::group(['middleware' => ['auth']], function() {
 
