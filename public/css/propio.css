@@ -21,3 +21,41 @@
   -moz-font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
 }
+
+/*--------------------------- menu desplegable -------------------------  */
+
+.sidebar[data-background-color="black"] li.nav-item>div.dropdown-container>a {
+  color: #fff !important;
+}
+
+.sidebar[data-background-color="white"] li.nav-item>div.dropdown-container>a {
+  color: #3C4858 !important;
+}
+
+.sidebar[data-background-color="red"] li.nav-item>div.dropdown-container>a {
+  color: #fff !important;
+}
+
+li.nav-item>div.dropdown-container>a:hover,
+li.nav-item>div.dropdown-container>a:active,
+li.nav-item>div.dropdown-container>a:focus{
+  border-radius: 3px;
+  text-decoration: none;
+  background-color: rgba(154, 154, 154, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(227, 227, 227, 0.4);
+}
+
+.dropdown-btn:hover {
+  cursor: pointer;
+}
+
+.dropdown-container {
+  display: none;
+  animation-name: bmd-dropdown-animation;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: inherit;
+  margin-left: 10px;
+  margin-right: 30px;
+}

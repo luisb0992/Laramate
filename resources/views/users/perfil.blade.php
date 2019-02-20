@@ -17,23 +17,23 @@
 				  @csrf
 
 				  <div class="form-group {{$errors->has('name')?'has-error':''}}">
-				    <label for="name">Nombre: *</label>
+				    <label class="bmd-label-floating" for="name">Nombre: *</label>
 				    <input type="text" class="form-control" name="name" value="{{$perfil->name}}" required>
 				  </div>
 
 				  <div class="form-group {{$errors->has('user')?'has-error':''}}">
-				    <label for="user">Usuario: *</label>
+				    <label class="bmd-label-floating" for="user">Usuario: *</label>
 				    <input type="text" class="form-control" name="user" value="{{$perfil->user}}" required>
 				  </div>
 
 					<div class="form-group {{$errors->has('email')?'has-error':''}}">
-				    <label for="email">Email: *</label>
+				    <label class="bmd-label-floating" for="email">Email: *</label>
 				    <input type="mail" class="form-control" name="email" value="{{$perfil->email}}" required>
 				  </div>
 
 				  <div class="form-group">
 						<div class="form-check">
-							<label class="form-check-label">
+							<label class="bmd-label-floating" class="form-check-label">
 								<input id="pp" type="checkbox" name="checkbox" value="Yes" class="form-check-input"> Cambiar contraseña?
 								<span class="form-check-sign">
 									<span class="check"></span>
@@ -44,11 +44,11 @@
 
 				  <section id="password_fields" style="display:none">
 					  <div class="form-group">
-					  	<label>Contraseña nueva: *</label>
+					  	<label class="bmd-label-floating">Contraseña nueva: *</label>
 					  	<input id="password" class="form-control" type="password">
 					  </div>
 					  <div class="form-group">
-					  	<label>Repetir Contraseña: *</label>
+					  	<label class="bmd-label-floating">Repetir Contraseña: *</label>
 					  	<input id="password_confirmation" class="form-control" type="password">
 					  </div>
 				  </section>

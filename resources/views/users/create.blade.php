@@ -17,27 +17,27 @@
 
 							<div class="form-group {{ $errors->has('name')?'has-error':'' }}">
 
-								<label class="control-label" for="name">Nombre: *</label>
-								<input id="name" class="form-control" type="text" name="name" value="{{ old('name')?old('name'):'' }}" placeholder="Nombre" required>
+								<label class="bmd-label-floating" for="name">Nombre: *</label>
+								<input id="name" class="form-control" type="text" name="name" value="{{ old('name')?old('name'):'' }}" required>
 							</div>
 
 							<div class="form-group {{ $errors->has('user')?'has-error':'' }}">
-								<label class="control-label" for="user">Usuario: *</label>
-								<input id="user" class="form-control" type="text" name="user" value="{{ old('user')?old('user'):'' }}" placeholder="Usuario" required>
+								<label class="bmd-label-floating" for="user">Usuario: *</label>
+								<input id="user" class="form-control" type="text" name="user" value="{{ old('user')?old('user'):'' }}" required>
 							</div>
 
 							<div class="form-group {{ $errors->has('email')?'has-error':'' }}">
-								<label class="control-label" for="email">Email: *</label>
-								<input id="email" class="form-control" type="email" name="email" value="{{ old('email')?old('email'):'' }}" placeholder="Email" required>
+								<label class="bmd-label-floating" for="email">Email: *</label>
+								<input id="email" class="form-control" type="email" name="email" value="{{ old('email')?old('email'):'' }}" required>
 							</div>
 
 							<div class="form-group {{ $errors->has('password')?'has-error':'' }}">
-								<label class="control-label" for="password">Contraseña: *</label>
+								<label class="bmd-label-floating" for="password">Contraseña: *</label>
 								<input id="password" class="form-control" type="password" name="password" required>
 							</div>
 
 							<div class="form-group {{ $errors->has('password_confirmation')?'has-error':'' }}">
-								<label class="control-label" for="password_confirmation">Repetir Contraseña: *</label>
+								<label class="bmd-label-floating" for="password_confirmation">Repetir Contraseña: *</label>
 								<input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required>
 							</div>
 

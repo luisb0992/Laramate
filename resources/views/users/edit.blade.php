@@ -17,18 +17,18 @@
 							@csrf
 
 							<div class="form-group {{ $errors->has('name')?'has-error':'' }}">
-								<label class="control-label" for="name">Nombre: *</label>
-								<input id="name" class="form-control" type="text" name="name" value="{{ old('name')?old('name'):$user->name }}" placeholder="Nombres">
+								<label class="bmd-label-floating" for="name">Nombre: *</label>
+								<input id="name" class="form-control" type="text" name="name" value="{{ old('name')?old('name'):$user->name }}">
 							</div>
 
 							<div class="form-group {{ $errors->has('email')?'has-error':'' }}">
-								<label class="control-label" for="email">Email: *</label>
-								<input id="email" class="form-control" type="mail" name="email" value="{{ old('email')?old('email'):$user->email }}" placeholder="Email">
+								<label class="bmd-label-floating" for="email">Email: *</label>
+								<input id="email" class="form-control" type="mail" name="email" value="{{ old('email')?old('email'):$user->email }}">
 							</div>
 
 							<div class="form-group {{ $errors->has('user')?'has-error':'' }}">
-								<label class="control-label" for="user">Usuario: *</label>
-								<input id="user" class="form-control" type="text" name="user" value="{{ old('user')?old('user'):$user->user }}" placeholder="Usuario">
+								<label class="bmd-label-floating" for="user">Usuario: *</label>
+								<input id="user" class="form-control" type="text" name="user" value="{{ old('user')?old('user'):$user->user }}">
 							</div>
 
 							@if (count($errors) > 0)

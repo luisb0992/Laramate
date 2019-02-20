@@ -61,10 +61,14 @@
           </li>
 
           <li class="nav-item {{ Request::segment(1) === 'users' ? 'active' : null }}">
-            <a class="nav-link" href="{{ route('users.index') }}">
-              <i class="material-icons">people</i>
-              <p>Usuarios</p>
-            </a>
+           <a class="nav-link dropdown-btn" data-toggle="dropdown">
+             <i class="material-icons">people</i>
+             <p>Usuarios <span class="fa fa-caret-down"></span></p>
+           </a>
+           <div class="dropdown-container">
+             <a href="{{ route('users.index') }}" class="dropdown-item"><p><i class="fa fa-list"></i> Listar</p></a>
+             <a href="{{ route('users.create') }}" class="dropdown-item"><p><i class="fa fa-plus"></i> Crear</p></a>
+           </div>
           </li>
 
         </ul>
